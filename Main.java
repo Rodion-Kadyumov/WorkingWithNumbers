@@ -25,7 +25,7 @@ public class Main {
 
         System.out.println("Cписок фамилий призывников (мужчин от 18 и до 27 лет):");
         List<String> list = persons.stream()
-                .filter(Person-> Person.getAge() > 18 && Person.getAge() < 27)
+                .filter(Person-> Person.getAge() >= 18 && Person.getAge() < 27)
                 .filter(Person->Person.getSex() == Sex.MAN)
                 .map(Person::getFamily)
                 .collect(Collectors.toList());
@@ -34,13 +34,13 @@ public class Main {
 
         List<String> list2 = persons.stream()
                 .filter(Person-> Person.getSex() ==Sex.WOMAN)
-                .filter(Person-> Person.getAge() > 18 && Person.getAge() < 60)
+                .filter(Person-> Person.getAge() >= 18 && Person.getAge() < 60)
                 .filter(Person->Person.getEducation() == Education.HIGHER)
                 .map(Person::getFamily)
                 .collect(Collectors.toList());
         List<String> list3 = persons.stream()
                 .filter(Person-> Person.getSex() ==Sex.MAN)
-                .filter(Person-> Person.getAge() > 18 && Person.getAge() < 65)
+                .filter(Person-> Person.getAge() >= 18 && Person.getAge() < 65)
                 .filter(Person->Person.getEducation() == Education.HIGHER)
                 .map(Person::getFamily)
                 .collect(Collectors.toList());
